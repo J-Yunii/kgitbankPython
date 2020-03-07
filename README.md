@@ -5,4 +5,4 @@ git 연습 중
 1. 복사하기
 D:\>git clone https://github.com/J-Yunii/kgitbankPython.git
 
-2.
+2. 소스 코딩하기
