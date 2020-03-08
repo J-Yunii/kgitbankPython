@@ -59,6 +59,6 @@ def update_data():
 
 # 집에서 해보기
 def delete_data():
-    conn = db_conn
+    conn = db_conn()
     cur = conn.cursor()
 
