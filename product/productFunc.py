@@ -40,7 +40,7 @@ def insert():
 
     data = [name, page, pub, descript]
 
-    sql = """insert into books values(%s,%s,%s,%s)"""
+    sql = """INSERT INTO books VALUES(%s,%s,%s,%s)"""
     
     c.execute(sql,data)
 
@@ -66,7 +66,7 @@ def select():
     input_name = input('검색할 도서명을 입력하세요: ')
     input_name = '%'+input_name+'%'
 
-    sql = """SELECT * FROM books where name LIKE %s"""
+    sql = """SELECT * FROM books WHERE name LIKE %s"""
     c.execute(sql,(input_name,))
 
     print(c.fetchall())
@@ -99,7 +99,7 @@ def delete():
     c = conn.cursor()
 
     input_name = input("삭제할 도서명을 입력하시오: ")
-    sql = """DELETE FROM books where name = %s"""
+    sql = """DELETE FROM books WHERE name = %s"""
     c.execute(sql,(input_name, ))
 
     conn.commit()

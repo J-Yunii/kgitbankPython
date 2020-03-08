@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+    본문 내용입니다.<br>
+    내용을 적으세요.
+    <h1>This is a Heading</h1>
+    <h2>This is a Heading</h2>
+    <h3>This is a Heading</h3>
+    <h4>This is a Heading</h4>
+    <h5>This is a Heading</h5>
+    <h6>This is a Heading</h6>
+    <!--띄어쓰기는 많이 띄어도 한 칸만 띄어짐-->
+    <!--&nbsp; 하면 많이 띄울 수 있음-->
+    <p>This is a paragraph.          본문   &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;                내용입니다.<br>
+        내용을 적으세요.</p>
+    <!-- &lt;는 <, &gt;는 >를 의미 -->
+    <p>This is a paragraph. &lt; &gt;        본문 내용입니다.<br>
+        내용을 적으세요.</p>
+    <p>This is a paragraph.        본문 내용입니다.<br>
+        내용을 적으세요.</p>
+    
+    <!--pre tag안에 있는 그대로 보임-->
+    <pre>스페이스바             모두 반영!!
+        줄바꿈도 됩니다!
+    </pre>
+
+    <!--target="_blank"는 새로운 창에 링크걸어 줌-->
+    <!--title은 마우스 갖다댔을 때 풍선 도움말 내용 띄어줌-->
+    <a href="https://www.naver.com/" target="_blank" 
+    title = "네이버 홈페이지">This is a link</a>
+
+    <p>
+        <!--#bottom은 해당문서 하단으로 이동시켜줌-->
+        <a href="#bottom">문서의 하단으로</a>
+    </p>
+
+    <!--style은 CSS쪽 문법-->
+    <p style="height:1000px;">
+        스크롤이 되는 효과를 나타내기 위해서 이 문단의
+        높이를 높게 지정합니다.<br>
+        <img src='https://t1.daumcdn.net/cfile/tistory/225E1E3958E60FCD03'>
+        <!--컴퓨터에 있는 이미지는 static에 넣은 뒤 경로 넣기-->
+        <img src='./static/redhot.jpg'>
+        <!-- 따옴표 구분하기 -->
+        <!-- static에 있는 이미지 파일 가지고 오는 법-->
+        <img src="{{url_for('static', filename='redhot.jpg')}}"
+    </p>
+
+    <p>
+        <!--a name은 위치지정-->
+        <a name="bottom">여기가 문서의 하단</a>
+    </p>
+
+    <!--웹페이지에서 데이터를 맞는 form-->
+    
+</body>
+</html>
