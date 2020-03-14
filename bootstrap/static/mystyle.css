@@ -1,0 +1,5 @@
+/* css문법, 구분자는 ; */
+/* 선택자(selector)[속성(property):속성값(value);] */
+/* p태그 전체의 color속성에
+색이름, 또는 color rgb값(16진수)을 속성값으로 넣어주기*/
+p{color:#00ff00;}
