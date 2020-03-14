@@ -1,5 +1,23 @@
+/* 공통 선택자: 모든 tag에 공통적으로 적용되는 것 
+중괄호 앞에 *붙이기,*/ 
+/*우선순위가 가장 낮음: tag별로 지정된 것을
+우선으로 함, 같은 우선순위일 경우는 먼저 적은 것을 우선으로*/
+*{color:bisque}
 /* css문법, 구분자는 ; */
 /* 선택자(selector)[속성(property):속성값(value);] */
 /* p태그 전체의 color속성에
 색이름, 또는 color rgb값(16진수)을 속성값으로 넣어주기*/
-p{color:#00ff00;}
+body {background-color: rgb(15, 59, 73);}
+  
+h1 {color: white;
+    text-align: center;}
+  
+p {font-family: verdana;
+    font-size: 20px;}
+
+span {background-color: rosybrown;}
+
+p span {background-color: rgb(52, 116, 148);
+    text-align: center;
+    font-size: 20px;}
+
