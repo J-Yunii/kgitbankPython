@@ -12,7 +12,7 @@
     </style>
     <title>Hello, world!</title>
   </head>
-
+  
   <body>
     <!-- 네비바 page에 딱 붙이고 싶으면 div, 조금 띄우고 싶으면 fluid, 많이는 container -->
     <div>
@@ -36,7 +36,7 @@
                   <a class="nav-link" href="/form">Form</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/listdata">DataList</a>
+                  <a class="nav-link" href="/listdata">DataList</a>
                 </li>
                 <!-- dropdown항목은 필요 없으므로 주석처리
                 li는 리스트 태그. 필요한것 필요없는 것 편집할 줄 알아야 한다.-->
@@ -67,70 +67,42 @@
             </div>
           </nav>
     </div>
-    
     <br>
+
     <!-- 점보트론/크로셀(이미지 슬라이드)을 주로 넣음 -->
-    <div class="container-fluid">
-        <!-- inline으로 배경이미지 지정가능, url함수 사용 -->
-        <div class="jumbotron" 
-        style="background-image: url('/static/1.jpg');
-        background-repeat:no-repeat;
-        background-size:cover">
-            <h1 class="display-4" style='font-weight:bold;
-            color:whitesmoke;
-            font-family:Nanum Myeongjo, serif;'>
-                Hello, world!
-            </h1>
-            <p class="lead" style='font-weight:bold;
-            color:whitesmoke;
-            font-family:Nanum Myeongjo, serif;'>
-                This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-            </p>
-            <hr class="my-4">
-            <p style='font-weight:bold;
-            color:whitesmoke;
-            font-family:Nanum Myeongjo, serif;'>
-                It uses utility classes for typography and spacing to space content out within the larger container.
-            </p>
-            <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
-        </div>
+    <div class="container">
+      <h1 style="font-family:'Song Myung', serif;
+      text-align: center;">
+      Customers Information
+      </h1>
+      <br>
+      <!-- 마우스 갖다 댔을 때 반전효과 주려면 table-hover-->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <!-- th는 제목 -->
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- td는 내용, 내용은 db에서 가져 옴 -->
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <br>
 
     <div class="container-fluid">
-        <div class="card-group">
-            <div class="card">
-            <img src="/static/1.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-            </div>
-            <div class="card">
-            <img src="/static/22.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-            </div>
-            <div class="card">
-            <img src="/static/3.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-            </div>
-        </div>
+       
     </div>
 
     <div class="container">

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="kr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Myeongjo|Noto+Serif+KR|Song+Myung&display=swap');
+    </style>
+    <title>Hello, world!</title>
+  </head>
+  
+  <body>
+    <!-- 네비바 page에 딱 붙이고 싶으면 div, 조금 띄우고 싶으면 fluid, 많이는 container -->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!--이미지 클릭하면 해당 url으로 넘어감 -->
+            <a class="navbar-brand" href="/">
+                <!--네비바의 이미지(경로적기) 또는 글자를 넣을 수 있음 
+                이미지 파일은 static폴더에 넣기-->
+                <img src="/static/bootstrap-solid.svg" width="30" height="30" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/form">Form</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/listdata">DataList</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+    </div>
+    <br>
+
+    <!-- 점보트론/크로셀(이미지 슬라이드)을 주로 넣음 -->
+    <div class="container">
+      <h1 style="font-family:'Song Myung', serif;
+      text-align: center;">
+      Customers Information
+      </h1>
+      <br>
+      <!-- 마우스 갖다 댔을 때 반전효과 주려면 table-hover-->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <!-- th는 제목 -->
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">PW</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- td는 내용, 내용은 db에서 가져 옴 -->
+            <th scope="row">1</th>
+            <!-- login 함수에서 쏴준 정보를 받음-->
+            <td>{{data.Name}}</td>
+            <td>{{data.InputEmail}}</td>
+            <td>{{data.InputPassword}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <div class="container-fluid">
+       
+    </div>
+
+    <div class="container">
+        <!-- Content here -->
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
