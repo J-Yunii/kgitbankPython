@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>폼 결과 페이지</title>
+    </head>
+    <body>
+        <h1>폼에 입력받은 값</h1>
+        사용자아이디 : {{username}}<br>
+        사용자패스워드 : {{userpass}}<br>
+        {% for item in joblist %}
+        <li> {{ item }} </li>
+         {% endfor %}
+    </body>
+</html>

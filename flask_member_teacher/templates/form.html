@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Form 양식 연습</title>
+    </head>
+    <body>
+        <h1>입력 양식</h1>
+        <form action="/formresult" method="POST">
+            사용자아이디 : <input type="text" name="username" placeholder="사용자이름" value="hong"><br>
+            사용자패스워드 : <input type="password" name="userpass" ><br>
+            <select name="job" multiple="multiple" size="2">
+                <option value="">직업선택</option>
+                <option value="학생">학생</option>
+                <option value="회사원"  selected="selected">회사원</option>
+                <option value="기타">기타</option>
+            </select> 
+            <br>
+            <input type="image" src="/static/swimming.png" onclick="submit();">
+
+        </form>
+
+    </body>
+
+</html>
