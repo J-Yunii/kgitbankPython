@@ -25,6 +25,7 @@
             <tbody>
               {% for item in list: %}
               <tr>
+                <!-- 딕셔너리이므로 key값으로 빼냄 -->
                 <td><a href="/content/{{item['userid']}}">{{item['userid']}}</a></td>
                 <td>{{item['userpw']}}</td>
                 <td>{{item['username']}}</td>

@@ -7,6 +7,10 @@ app=Flask(__name__)
 def index():
     return render_template('bootstraptest.html')
 
+@app.route('/bootstrap')
+def bootstraptest():
+    return render_template('bootstraptest.html')
+
 @app.route('/form')
 def formTest():
     return render_template('form.html')
@@ -17,10 +21,6 @@ def formresult():
     userpass = request.form.get('userpass')
     joblist=request.form.getlist('job')
     return render_template('formresult.html',username=username,userpass=userpass,joblist=joblist) 
-
-@app.route('/bootstrap')
-def bootstraptest():
-    return render_template('bootstraptest.html')
 
 @app.route('/usersform',methods=['POST','GET'])
 def usersform():
@@ -42,7 +42,8 @@ def usersform():
         useradd = request.form.get('useradd')
         usergender = request.form.get('usergender')
         usertel = request.form.get('usertel')
-    
+
+        # html에서 받은 것을 변수에 저장한 다음, db에 저장
         try:
             connection=pymysql.connect(host='maria',
                             user='root',
@@ -103,8 +104,8 @@ def updateformpost():
     try:
         with connection.cursor() as cursor:
             sql='''
-                update users 
-                set 
+                UPDATE users 
+                SET 
                 userpw=%s,
                 username=%s,
                 userage=%s,
@@ -112,7 +113,7 @@ def updateformpost():
                 useradd=%s,
                 usergender=%s,
                 usertel=%s
-                where userid=%s;
+                WHERE userid=%s;
                 '''
             cursor.execute(sql,(userpw,username,userage,usermail,useradd,usergender,usertel,userid))
             connection.commit()
@@ -120,6 +121,7 @@ def updateformpost():
         connection.close()                            
     return redirect('/list')    
 
+# data는 괄호 안에! 쀼쀼
 @app.route('/content/<userid>')
 def content(userid):
     connection=pymysql.connect(host='maria',
@@ -131,8 +133,9 @@ def content(userid):
        
     try:
         with connection.cursor() as cursor:
+            # like는 일부 where은 완전 일치
             sql="select * from users where userid = %s;"
-            cursor.execute(sql,userid)
+            cursor.execute(sql, userid)
             result=cursor.fetchone()
             print(result)
     finally:

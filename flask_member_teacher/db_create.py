@@ -21,7 +21,7 @@ try:
             userpw varchar(20) not null,
             username varchar(20) not null,
             userage int,
-            usermail varchar(20),
+            usermail varchar(50),
             useradd varchar(50),
             usergender varchar(20),
             usertel varchar(20));
