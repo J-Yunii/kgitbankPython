@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <!-- submit 버튼 누르면 action('fileupload')호출 -->
+        <form action = '/fileupload' method='POST', enctype="multipart/form-data">
+            <!-- 이름이 있어야 데이터를 추출할 수 있음! 꼭 이름 써주기 -->
+            <input type = "file" name = 'file'>
+            <input type = 'submit'>
+        </form>
+    </body>
+</html>

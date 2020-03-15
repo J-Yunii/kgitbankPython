@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Python Flask File Download Example
+        </title>
+    </head>
+    <body>
+        <h2>Download a file list</h2>
+        <p>
+            {% for file in files %}
+            <!-- files는 주소값으로 file은 data값으로 넘겨줌-->
+            <!-- 파일 이름을 보여줌 -->
+            <a href="/files/{{file}}">{{file}}</a> <br>
+            {% endfor %}
+        </p>
+    </body>
+</html>
