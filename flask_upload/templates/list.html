@@ -1,18 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Python Flask File Download Example
-        </title>
-    </head>
-    <body>
-        <h2>Download a file list</h2>
-        <p>
+{% extends "base.html" %}
+{% block title %}Python Flask File Download Example{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 style='text-align: center;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: "bold";'>Download a file list</h1>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">download</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for file in files %}
+            <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>Mark</td>
+            <td>{{file}}</td>
             <!-- files는 주소값으로 file은 data값으로 넘겨줌-->
-            <!-- 파일 이름을 보여줌 -->
-            <a href="/files/{{file}}">{{file}}</a> <br>
+            <!-- 중괄호 두개는 파일 이름을 보여줌 -->
+            <td><a href="/files/{{file}}">file download</a></td>
+            </tr>
             {% endfor %}
-        </p>
-    </body>
-</html>
+        </tbody>
+        </table>
+    
+</div>
+{% endblock %}
+ 

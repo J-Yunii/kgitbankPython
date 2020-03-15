@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<br>
+    <!-- 점보트론/크로셀(이미지 슬라이드)을 주로 넣음 -->
+    <div class="container-fluid">
+        <!-- inline으로 배경이미지 지정가능, url함수 사용 -->
+        <div class="jumbotron" 
+        style="background-image: url('/static/5.jpg');
+        background-repeat:no-repeat;
+        background-size:cover">
+            <h1 class="display-4" style='font-weight:bold;
+            color:whitesmoke;
+            font-family:Nanum Myeongjo, serif;'>
+                Hello, world!
+            </h1>
+            <p class="lead" style='font-weight:bold;
+            color:whitesmoke;
+            font-family:Nanum Myeongjo, serif;'>
+                This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+            </p>
+            <hr class="my-4">
+            <p style='font-weight:bold;
+            color:whitesmoke;
+            font-family:Nanum Myeongjo, serif;'>
+                It uses utility classes for typography and spacing to space content out within the larger container.
+            </p>
+            <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="card-group">
+            <div class="card">
+            <img src="/static/1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+            </div>
+            <div class="card">
+            <img src="/static/22.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+            </div>
+            <div class="card">
+            <img src="/static/3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

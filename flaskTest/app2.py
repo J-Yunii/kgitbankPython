@@ -19,11 +19,9 @@ def getEmployeeList():
         # indent : 깔끔하게 띄어쓰기해서 표현
         jsonStr = json.dumps([e.toJSON() for e in employeeList], indent = 4, ensure_ascii=False)
 
-
     except:
         pass
     return jsonStr
-
 
 
 if __name__ == "__main__":

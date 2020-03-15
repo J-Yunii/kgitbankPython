@@ -1,10 +1,18 @@
-<html>
-    <body>
-        <!-- submit 버튼 누르면 action('fileupload')호출 -->
-        <form action = '/fileupload' method='POST', enctype="multipart/form-data">
-            <!-- 이름이 있어야 데이터를 추출할 수 있음! 꼭 이름 써주기 -->
-            <input type = "file" name = 'file'>
-            <input type = 'submit'>
-        </form>
-    </body>
-</html>
+<!-- base template를 상속받는 child template -->
+{% extends "base.html" %}
+{% block title %}UPLOAD{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <form action = '/fileupload' method='POST', enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Example file input</label>
+          <input type="file" name = 'file' class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+</div>
+{% endblock %}
+
+        
