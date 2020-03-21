@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src='/static/main8.js'></script>
+</head>
+<body>
+    <!-- size는 입력창의 크기 -->
+    <!-- onkeyup은 키를 눌렀다가 땠을 때 이벤트이다 
+        (onkeydown 에서 인식하는 키들을 인식 한다). -->
+    구구단: 
+    <input type='text' id='dan' value='' size='10' onkeyup='enter()'><br>
+    <input type='button' value='확인' onclick="gugu()">
+
+    <div id='result'>innerhtml 영역</div>
+
+    <script>
+        // focus: 자동으로 커서 깜빡임
+        document.getElementById('dan').focus();
+    </script>
+
+
+</body>
+</html>>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>실습!!</title>
+    <!-- jQuery 링크가 앞쪽에 있어야 함 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script>
+        // $(선택자), $ 붙으면 jQuery
+        // #=> id참조 / . => dot은 클래스 참조
+        // 함수이름 따로 필요 없음, DOM로딩 완료되면 함수 자동실행
+        // (document).ready는 생략해도 됨
+        $(document).ready(function(){
+            // 실행할 코드
+            // 스타일 시트를 바꿀 때, 선택자의 *는 모든 element를 뜻함
+            // css(key값(ex> border), value값)
+            $('*').css('border', '1px solid blue');
+            $('h1').css('background-color','green');
+            $('#title').css('background-color','yellow')
+            // relation class에 대해서 적용
+            $('.relation').css('border', '3px dotted red');
+            // document.write('동작완료')
+        });
+    </script>
+</head>
+<body>
+    <!-- jQuery는 $표시를 붙임 -->
+    <h1>jQuery</h1>
+    <h2 id='title'>직접 선택자 및 관계 선택자</h2>
+    <h2 class='relation'>관계 선택자</h2>
+    <h3>직접 선택자</h3>
+
+</body>
+</html>

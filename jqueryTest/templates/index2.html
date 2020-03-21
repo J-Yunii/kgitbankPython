@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>실습!!</title>
+    <!-- jQuery 링크가 앞쪽에 있어야 함 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            // input요소 중 type이 text이 것
+            $(":text").css('border', '1px dashed #f00')
+            //checked속성을 가지는 attribute 중에 
+            // checked되있는 것을 해제(false)하라!
+            $(':checked').attr("checked",false)
+            // selected속성을 가지는 attribute 중에 
+            // selected되있는 것을 해체하라!
+            $(":selected").attr('selected',false)
+        });
+    </script>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <p>
+        <label for='user_name'>이름</label>
+        <input type='text' name='user_name' id='user_name'>
+    </p>
+    <p>
+        <input type='checkbox' name='accept' id='accept'
+        checked='checked'>
+        <label for='accept'>사용자 동의</label>
+    </p>
+    <p>
+        <select name='rel_site' id='rel_site'>
+        <option value='네이버'>네이버</option>
+        <option value='네이트' selected='selected'>네이트</option>
+        </select>
+    </p>
+
+</body>
+</html>

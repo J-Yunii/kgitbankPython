@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>실습!!</title>
+    <!-- jQuery 링크가 앞쪽에 있어야 함 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('li').text('한번에 변경');
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            // html은 <p>태그를 반영하지만 text는 문자열 그대로 반영
+            $('li').text('<p>한번에 변경 text</p>');
+            //$('li').html('<p>한번에 변경 html</p>');
+        });
+    </script>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <div id='p1'>내용1</div>
+    <div id='p2' class='red'>
+        <ul>
+            <li>사과</li>
+            <li>귤</li>
+            <li>배</li>
+            <li>키위</li>
+            <li>딸기</li>
+            <li>포도</li>
+        </ul>
+    </div>
+
+    <div id='p3' class='red'>
+        <ul>
+            <li>인덱스-1</li>
+            <li>인덱스-2</li>
+            <li>인덱스-3</li>
+            <li>인덱스-4</li>
+            <li>인덱스-5</li>
+            <li>인덱스-6</li>
+        </ul>
+    </div>
+
+</body>
+</html>

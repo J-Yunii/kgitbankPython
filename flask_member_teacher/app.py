@@ -1,6 +1,9 @@
 from flask import Flask,request,render_template,redirect,url_for,jsonify
 import pymysql,os
 
+# 서버에 있는 소스를 클라이언트 웹에 가져와서 실행
+# html: 정적인 문서, 골격 잡는데 한계 => CSS로 보완
+# 자바스크립터: 동적인 문서
 app=Flask(__name__)
 
 @app.route('/')
