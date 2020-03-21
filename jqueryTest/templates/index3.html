@@ -14,7 +14,15 @@
         $(document).ready(function(){
             // html은 <p>태그를 반영하지만 text는 문자열 그대로 반영
             $('li').text('<p>한번에 변경 text</p>');
-            //$('li').html('<p>한번에 변경 html</p>');
+            $('li').html('<p>한번에 변경 html</p>');
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            // i는 index k는 key
+            $('li').each(function(i,k){
+                $(k).text('인덱스-'+i)
+            });
         });
     </script>
 </head>
