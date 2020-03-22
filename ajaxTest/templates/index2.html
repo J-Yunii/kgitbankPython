@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 문서가 100% 클라이언트로 넘어와야 실행됨
+        $(function(){
+            //btn id를 가진 버튼을 클릭했을 때 함수실행
+            $('#btn').click(function(){
+                $.ajax({
+                    url:'/static/rank.json',
+                    dataType:'json',
+                    success:function(result){
+                        $.each(result.rank, function(index,element){
+                            var name = '<li>'+ element['k']+'</li>'
+                            $('#wrap ol').append(name)
+                        });
+                    }
+                });
+            });
+
+            // 마우스가 들어갔을 때 안의 내용이 지워지게끔
+            $('#btn').mouseenter(function(){
+                $('#wrap ol').text("");
+            });
+        });
+
+        
+    </script>
+</head>
+<body>
+    <h1>인기 검색어</h1>
+    <div id='wrap'>
+        <ol></ol>
+    </div>
+    <button id='btn'>불러오기</button>
+</body>
+</html>

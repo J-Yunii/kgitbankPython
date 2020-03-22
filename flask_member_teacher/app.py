@@ -202,6 +202,8 @@ def ajaxlistget():
 
 @app.route('/ajaxlist',methods=['POST'])
 def ajaxlistpost():
+    # ajax의 key값 userid를 가지고 옴 post방식의 데이터는 form에 들어간다.
+    # get방식의 데이터는 args에 들어간다.
     userid = request.form.get('userid')
     connection=pymysql.connect(host='maria',
                             user='root',
@@ -212,12 +214,14 @@ def ajaxlistpost():
     try:
         with connection.cursor() as cursor:
                 sql="select * from users where userid like %s;"
-                userid=userid+'%'
-                cursor.execute(sql,userid+'%')
+                userid='%'+userid+'%'
+                cursor.execute(sql,userid)
                 result=cursor.fetchall()
                 print(result)
     finally:
             connection.close()
+    # json으로 만들어서 ajax에 보내야 함
+    # 데이터 타입을 json으로 했음
     return jsonify(result)    
 
 @app.route('/imglist')

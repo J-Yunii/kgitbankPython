@@ -13,6 +13,8 @@
                 success:function(result){
                     // 전체(result)에서 rank에 대해서 각각 함수를 처리해줌
                     // 변수명은 상관없음, 앞은 인덱스, 뒤는 엘리먼트를 받음
+                    // 딕셔너리 접근법 .(dot)!!
+                    // result.boxOfficeResult['dailyBoxOfficeList'] 요렇게도 됨
                     $.each(result.boxOfficeResult.dailyBoxOfficeList, function(index,element) {
                         var name = '<li>'+element["movieNm"]+"</li>"
                         $('#wrap ol').append(name)
