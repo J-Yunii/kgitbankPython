@@ -1,3 +1,5 @@
+
+<!-- 진자에서 부모를 상속받는 개념 -->
 {% extends 'base.html' %}
 {% include 'header.html' %}
 
@@ -16,21 +18,28 @@
                <div class="jumbotron p-3">
 
                   <h2>
-                     Manage <b>Employees </b>  
+                     <!-- b태그는 bold -->
+                     Manage <b>Employees</b> 
+                      <!-- modal: 한페이지 안에서 데이터를 같이 쓸 때 모달을 통해서 처리함  -->
+                      <!-- data-target: id가 mymodal인 것 -->
                      <button type="button"  class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add New Employees</button> 
                   </h2>
 
 
+                  <!-- flash의 메시지를 받아서 messges에 넣어놈 -->
                   {% with messages = get_flashed_messages() %}
 
+                     <!-- 메시지가 있을 때만 실행(True) -->
                      {% if messages %}
 
+                        <!-- 메시지가 여러개 있을 때를 대비해서 for문 씀  -->
                         {% for message in messages %}
 
                            <div class="alert alert-success alert-dismissable" role="alert">
 
                               <button type="button" class="close" data-dismiss="alert" aria-label="close">
 
+                                    <!-- 닫기 버튼 -->
                                     <span aria-hidden="true">x</span>
 
                               </button>
@@ -47,7 +56,7 @@
 
                   {% endwith %}
 
-
+                  <!-- hover: 마우스 포인터가 올라갈때 내려갈때를 처리해줌 -->
                   <table class="table table-hover table-dark">
 
                      <tr>
@@ -61,14 +70,23 @@
                      </tr>
 
 
+                     <!-- 반복문 시작! -->
                      {% for row in employees %}
+                        <!-- 데이터 건수만큼 모달소스도 같이 따라 붙음 -->
+                        <!-- 모달도 같이 for문에 돌림 -->
                         <tr>
                               <td>{{row.id}}</td>
                               <td>{{row.name}}</td>
                               <td>{{row.email}}</td>
                               <td>{{row.phone}}</td>
 
+                              <!-- 마지막에 버튼 두개 -->
                               <td>
+                                 <!-- 버튼 누르면 모달 실행!! -->
+                                 <!-- get방식으로 1.주소 보냄 2.?로보내는것 중 1번으로 보냄, id로 지음 -->
+                                 <!-- a태그인데 btn class를 속성으로 넣으면 버튼처럼 보임 waring은 노랭쓰 danger은 빨갱쓰 -->
+                                 <!-- 모달로 연결할거면 data-toggle에 모달쓰기, data-target에는 모달id를 줘야함 -->
+                                 <!-- 데이터마다 모달이 따로 만들어지므로 row.id라 씀 -->
                                  <a href="/update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
                                  <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
                               </td>
@@ -77,6 +95,9 @@
 
 
                         <!-- Modal Edit Employee-->
+                        <!-- 역할은 다이아로그 안쓰면 창 안뜸 -->
+                        <!-- modal fade: 처음에는 안보이게 숨겨져있음 -->
+                        <!-- row마다 id다르므로 해당되는 modal id가지고 옴 -->
                         <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
                            <div class="modal-dialog">
                               <div class="modal-content">
@@ -145,7 +166,7 @@
 
                                  <div class="modal-footer">
 
-
+                                    <!-- data-dismiss:modal => 모달창이 사라짐 -->
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
 
@@ -217,7 +238,7 @@
 
                               <div class="form-group">
 
-
+                                 <!-- type이 submit이므로 post방식으로 url_for('insert')호출, 위에 있음 -->
                                  <button class="btn btn-primary" type="submit">Add Employee</button>
 
 

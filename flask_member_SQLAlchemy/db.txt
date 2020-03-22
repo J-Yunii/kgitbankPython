@@ -1,0 +1,15 @@
+  
+테이블 이름  users
+아이디      userid    str  varchar(20)
+패스워드    userpw     str  varchar(20)
+이름       username  str   varchar(20)
+나이       userage   int   int
+메일       usermail   str   varchar(20)
+주소       useradd     str   varchar(50)
+성별       usergender   str   varchar(20) 라디오버튼
+전화번호    usertel      str   varchar(20)
+
+
+https://blog.naver.com/lmj4160/221448824030
+
+https://www.tutorialspoint.com/#

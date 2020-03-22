@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "import.html" %}
+    <title>Hello, world!</title>
+    <script src="http://code.jquery.com/jquery-latest.js" ></script>
+    <script>
+      // 함수로 만들어놔도 괜찮음, 문서 다 안 읽어도...
+      // 대신 호출하는 곳이 있어야 함 -> 이 방법은 안 좋음(다른 사람이 뭐를 호출하는지 알 수 있으니까)
+     function cmdajax(){
+      $.ajax({	type : "POST",
+          // id가 userid인 값(value 값)을 userid(key 값)라는 이름으로 보냄
+					data : {	"userid" : $("#userid").val()	},
+					url : "/ajaxlist",
+          dataType : "json",
+          // app.py의 제이슨화된 결과값을 받음
+					success : function(result) {
+            console.log(result);
+            // id가 ajaxlist인 것, 빈문자열을 넣으므로써 테이블을 제거
+            $("#ajaxlist").html("");
+            // 테이블 태그 다시 만들어서 붙임
+						$("#ajaxlist").append(
+             ' <table class="table table-hover table-dark">'+
+           ' <thead>'+
+             ' <tr>'+
+                '<th scope="col">아이디</th>'+
+                '<th scope="col">패스워드</th>'+
+                '<th scope="col">이름</th>'+
+                '<th scope="col">나이</th>'+
+                '<th scope="col">메일주소</th>'+
+                '<th scope="col">주소</th>'+
+                '<th scope="col">성별</th>'+
+                '<th scope="col">전화번호</th>'+
+              '</tr>'+
+            '</thead>'
+            ); 
+
+            // 테이블 골격안에 데이터 넣음, item은 node값(element)
+            $(result).each(function(index, item) {
+              // 데이터 하나씩(each) 받아와서 append
+            $("table").append(
+              "<tr>"
+              + "<td><a href='/content/"+ item.userid +"'>"
+              + item.userid  
+              + "</a></td>"
+              + "<td>"
+							+ item.userpw
+							+ "</td>"
+							+ "<td>"
+							+ item.username
+							+ "</td>"
+							+ "<td>"
+							+ item.userage
+							+ "</td>"
+							+ "<td>"
+							+ item.usermail
+							+ "</td>"
+							+ "<td>"
+							+ item.useradd
+							+ "</td>"
+							+ "<td>"
+							+ item.usergender
+							+ "</td>"
+              + "<td>"
+							+ item.usertel
+							+ "</td>"
+              + "<tr>"
+              
+            );
+          });
+			}
+	});
+}
+
+    </script>
+  </head>
+  <body>
+    {% include "menu.html" %}     
+    <h1 align="center">회원목록 리스트</h1>
+    <div class="container-fluid">
+      <form method="post">
+        <div class="input-group mb-3">
+          <!-- key를 눌렀다 땔 때 cmdajax()함수 호출 -->
+          <input type="text" class="form-control" onkeyup="cmdajax();"  placeholder="userid" id="userid" name="userid" aria-label="userid" aria-describedby="button-addon2">
+        </div>
+      </form>
+    </div>
+    
+    <div class="container-fluid">
+      <div id='ajaxlist'>
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">아이디</th>
+                <th scope="col">패스워드</th>
+                <th scope="col">이름</th>
+                <th scope="col">나이</th>
+                <th scope="col">메일주소</th>
+                <th scope="col">주소</th>
+                <th scope="col">성별</th>
+                <th scope="col">전화번호</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <!-- 데이터 건수에 따라서 반복해서 찍음
+              처음에 get방식으로 list넘어왔을때 찍음 -->
+              <!-- table태그 부분적으로 수정이 어려움 애초에 새로만드는게 나음 -->
+              {% for item in list: %}
+              <tr>
+                <td><a href="/content/{{item['userid']}}">{{item['userid']}}</a></td>
+                <td>{{item['userpw']}}</td>
+                <td>{{item['username']}}</td>
+                <td>{{item['userage']}}</td>
+                <td>{{item['usermail']}}</td>
+                <td>{{item['useradd']}}</td>
+                <td>{{item['usergender']}}</td>
+                <td>{{item['usertel']}}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+      </div>
+    </div>
+   </body>
+</html>
