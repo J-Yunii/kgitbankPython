@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Foundry>
+<VM>
+<VMId type="string">52 ad 8a 41 f6 76 48 a5-41 81 0f 9b 13 2a e6 75</VMId>
+<ClientMetaData>
+<clientMetaDataAttributes/>
+<HistoryEventList/></ClientMetaData>
+<vmxPathName type="string">EVE_Linux2_Images.vmx</vmxPathName></VM></Foundry>

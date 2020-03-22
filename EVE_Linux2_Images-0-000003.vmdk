@@ -1,0 +1,23 @@
+# Disk DescriptorFile
+version=1
+encoding="windows-949-2000"
+CID=9d9fd991
+parentCID=9d9fd991
+createType="twoGbMaxExtentSparse"
+parentFileNameHint="EVE_Linux2_Images-0-000002.vmdk"
+# Extent description
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s001.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s002.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s003.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s004.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s005.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s006.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s007.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s008.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s009.vmdk"
+RW 8323072 SPARSE "EVE_Linux2_Images-0-000003-s010.vmdk"
+RW 655360 SPARSE "EVE_Linux2_Images-0-000003-s011.vmdk"
+
+# The Disk Data Base 
+#DDB
+
