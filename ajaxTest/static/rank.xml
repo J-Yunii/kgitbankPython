@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- xml태그 이름은 내가 하고싶은 걸로 -->
+<result>
+    <item>
+        <rank>
+            <k>김연아</k>
+        </rank>
+        <rank>
+            <k>이상화</k>
+        </rank>
+        <rank>
+            <k>모대범</k>
+        </rank>
+    </item>
+</result>

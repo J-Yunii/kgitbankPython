@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>실습!!</title>
+    <!-- jQuery 링크가 앞쪽에 있어야 함, 아니면 달러표시가 정의가 안됨-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // (document).ready:문서가 다 읽어지면
+        $(document).ready(function(){
+            // on은 이벤트가 생성됐을 때 함수를 실행함
+            // p태그에 마우스를 위에 올렸을 때(mouseover) 영역을 빠져나갈때(mouseout)
+            // 두번째 인자는 해야 될 일(함수가 들어감)
+            $("p").on("mouseover mouseout", function(){
+                // this는 자신을 뜻함(p태그)
+                //toggleClass: class에 'intro'를 주고 빼라는 뜻!
+                $(this).toggleClass('font');
+            });
+            $("img").on("mouseover mouseout", function(){
+                // this가 아니라 img태그를 쓰면 전체 이미지에 대해서 적용됨
+                // 자기 그림에만 해당됨
+                $(this).toggleClass('intro');
+            });
+        });
+    </script>
+    <style>
+        .font{font-size:150%;color:mediumpurple;}
+        .intro{width:400px; height:400px}
+    </style>
+</head>
+<body>
+    <p>move the mouse pointer</p>
+    <!-- 스타일태그 넣으면 toggle적용안됨 -->
+    <img src='/static/fall.jpg' style='width:100px; height:100px;'>
+    <img src='/static/spring.jpg' width=100px height=100px>
+    <img src='/static/winter.jpg' width=100px height=100px>
+    <img src='/static/summer.jpeg' width=100px height=100px>
+</body>
+</html>

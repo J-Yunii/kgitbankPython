@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // (document).ready(function) 모두 생략
+        $(function(){
+            $.ajax({
+                url:'/static/rank.json',
+                dataType:'json',
+                // 요청이 성공했을 때 함수를 실행(이름은 없음)
+                // 자동으로 넣어주는 인자가 있는데 이 매개변수이름은 아무거나 상관없음
+                success:function(result){
+                    // 전체(result)에서 rank에 대해서 각각 함수를 처리해줌
+                    // 변수명은 상관없음, 앞은 인덱스, 뒤는 엘리먼트를 받음
+                    $.each(result.rank, function(index,element) {
+                        var name = '<li>'+element["k"]+"</li>"
+                        $('#wrap ol').append(name)
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>인기 검색어</h1>
+    <div id='wrap'>
+        <ol></ol>
+    </div>
+</body>
+</html>

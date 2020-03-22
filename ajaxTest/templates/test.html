@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=430156241533f1d058c603178cc3ca0e&targetDt=20120101',
+                dataType:'xml',
+                success:function(Result) {
+                    if($(Result).find('dailyBoxOffice').length>0){
+                        $(Result).find('dailyBoxOffice').each(function(){
+                            var name = $(this).find('movieNm').text();
+                            var hello='<li>'+name+'</li>'
+                            $('#wrap ol').append(hello);
+                        });
+                    }   
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>인기 검색어</h1>
+    <div id='wrap'>
+        <ol></ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // document.ready 안 적어도 됨
+        // 문서를 다 읽으면 실행
+        $(function(){
+            $.ajax({
+                url:"/static/rank.xml",
+                dataType:'xml',
+                // 성공했으면 변수/함수를 받음
+                success:function(result){
+                    // result(xml자료형)를 선택함
+                    // 데이터가 있는지 물어봄: length>0
+                    // rank가 있는지 물어봄
+                    if($(result).find("rank").length>0){
+                        // each는 각각 적용
+                        $(result).find("rank").each(function(){
+                            // 선택자 this
+                            // rank태그안의 k 태그가 있는지 물어봄
+                            // k태그안의 데이터(텍스트)를 보여줌
+                            var name = $(this).find("k").text();
+                            var result = "<li>"+name+"</li>";
+                            $('#wrap ol').append(result);
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- ajax는 데이터가 들어갈 공간만 생성/ 데이터들을 다 넣는게 아니라 -->
+    <h1>인기 검색어</h1>
+    <div id='wrap'>
+        <ol></ol>
+    </div>
+    
+</body>
+</html>
