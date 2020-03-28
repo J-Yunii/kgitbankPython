@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".one").parent().css("border","2px solid green")
+            $("#first").children().css("background-color","yellow")
+        });
+    
+    </script>
+</head>
+<body>
+    <h1>자바 프로그램 영역</h1>
+    <ul>
+        <li>
+            <ul id="first">
+                <li>자바</li>
+                <li class="one">jsp</li>
+                <li class="two">안드로이드</li>
+                <li class="three">스프링</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

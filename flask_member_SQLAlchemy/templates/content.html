@@ -6,7 +6,7 @@
   </head>
   <body>
     {% include "menu.html" %}     
-    <h1 align="center">{{list['username']}} 회원 정보</h1>
+    <h1 align="center">{{list['username']}}회원 정보</h1>
     <div class="container-fluid">
         <table class="table table-hover table-dark">
             <thead>
@@ -37,30 +37,23 @@
 
               </tbody>
           </table>
-
-          <!-- 여기서 부터 자바스크립트, 태그 안에 inline으로 적을 수도 있음-->
-          <script type="text/javascript">
-          // 수정할 때, id는 들고가야 함
+          <script type="text/javascript"> 
             function goUpdate() { 
                 dir="/updateform/{{list['userid']}}"
                 location.replace(dir); 
             } 
-            // 지울 때, id 들고가야 함
             function goDelete() { 
               dir="/deleteform/{{list['userid']}}"
               location.replace(dir); 
             } 
             
           </script>
-          <!--  style 태그 안에는 CSS, onclick 태그 안에는 자바 스크립트문법(동적인 문서), 다른 자바 스크립트 태그(on...)도 많음 -->
           <button type="button" class="btn btn-success" onclick="goUpdate()">수정</button>
-          <!-- data-target으로 id exampleModal호출 -->
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">삭제</button>
-          <!-- 인라인으로 자바 써놈 -->
           <button type="button" class="btn btn-info" onclick="location.replace('/list'); ">목록으로</button>
 
           
-          <!-- 삭제는 Modal을 이용, 부트스트랩에 가면 있음 -->
+          <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -74,9 +67,7 @@
                   삭제하시겠습니까?
                 </div>
                 <div class="modal-footer">
-                  <!-- 취소는 그냥 다시 페이지로 넘어가면 됨 -->
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                  <!-- 삭제 눌렀을 때  goDelete함수 호출 -->
                   <button type="button" class="btn btn-primary" onclick="goDelete()">삭제</button>
                 </div>
               </div>
