@@ -29,6 +29,7 @@ def step2_preprocessing():
     # 랜덤하게 섞는다. - 평점 좋은 영화, 평점 안좋은 영화를 섞어서 골고루 학습시키기 위해서
     # print(df)
     # print('---------------------')
+    # 어느정도 규칙있게? 랜덤하게 섞고 다시 인덱스값 부여
     np.random.seed(0)
     df = df.reindex(np.random.permutation(df.index))
     # print(df)
@@ -36,13 +37,13 @@ def step2_preprocessing():
     # 전처리 과정
     df['text'] = df['text'].apply(text_preprocessing)
     df['star'] = df['star'].apply(star_proprocessing)
-    # 학습 데이터와 테스트 데이터로 나눈다. 리스트로 바꿔줘야 처리가 쉬움(나누기 위해서)
+    # 학습 데이터와 테스트 데이터로 나눈다. 리스트로 바꿔줘야 처리가 쉬움(나누기 위해서, 학습vs테스터 데이터로)
     text_list = df['text'].tolist()
     star_list = df['star'].tolist()
 
     # 함수에서 text_list가 x값 문제, star_list는 y값 답, 순서 유의
     # 테스트 사이즈 7:3정도로 나눔
-    # 처음에 내는 문제 테스트 할것, 처음 문제 답, 테스트 문제 답
+    # 처음에 내는 문제 테스트 할 것, 처음 문제 답, 테스트 문제 답
     text_train, text_test, star_train, star_test = train_test_split(text_list, star_list, test_size=0.3, random_state=0)
     # 학습시킬 문제
     # print(len(text_train))
