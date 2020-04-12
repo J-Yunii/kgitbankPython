@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}영화 정보 크롤링{% endblock %}
+{% block head %}
+
+<script>
+  function moviesearch(){
+    $.ajax({
+     type : "GET",
+     url : "/moviesearch",
+     dataType : "text",
+     success : function(result){
+       $("#c1").html(result);
+     }
+   });
+  }
+ </script>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="card-group ">
+      <div class="card border-warning">
+        <img src="/static/img/lavender.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">네이버 영화 정보</h5>
+          <p class="card-text">네이버 영화 상영작을 크롤링 합니다.</p>
+          <p class="card-text"><small class="text-muted" id='c1'>정보수집 전</small></p>
+          <p><button type="button" class="btn btn-danger" onclick="moviesearch();">정보검색</button></p> 
+        </div>
+      </div>
+      <div class="card border-warning">
+        <img src="/static/img/plume.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">네이버 영화평</h5>
+          <p class="card-text">영화 감상평을 크롤링 합니다.</p>
+          <p class="card-text"><small class="text-muted" id='c2'>정보수집 전</small></p>
+          <p><button type="button" class="btn btn-danger">정보검색</button></p> 
+        </div>
+      </div>
+      <div class="card border-warning">
+        <img src="/static/img/deer.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">영화 매출 정보</h5>
+          <p class="card-text">영화진흥api에서 매출 정보 등을 크롤링 합니다.</p>
+          <p class="card-text"><small class="text-muted" id='c3'>정보수집 전</small></p>
+          <p><button type="button" class="btn btn-danger">정보검색</button></p> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+

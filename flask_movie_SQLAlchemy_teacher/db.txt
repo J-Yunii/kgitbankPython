@@ -1,0 +1,10 @@
+테이블 이름 movie 
+
+code 영화코드 int pk,
+title 영화제목 string,
+time 상영시간 int,
+sdate 개봉일자 string,
+grade 상영등급 string,
+audience 총관람객수 int,
+summary 영화줄거리 string,
+thumb 썸네일 이미지 경로 string
