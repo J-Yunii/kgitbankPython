@@ -58,11 +58,14 @@ def step1_Getdata():
                         else:
                             df = df.append([[score_reple, star_score]], ignore_index=True)
                     # 저장
+                    # 학습 시킬거랑 안 시킬거를 떼놓기 위해서
+                    # 체크값이 False면 처음=> 파일을 만듬
                     if chk == False:
                         chk=True
                         df.columns = ['text', 'star']
                         df.to_csv('./data/naver_star_data.csv', index=False, encoding='utf-8-sig')
                     else:
+                        # 체크값이 True면 파일이 있다는 뜻이니 append함
                         df.to_csv('./data/naver_star_data.csv', index=False, encoding='utf-8-sig', mode='a', header=False)
                     now_page += 1
                     print('%d / %d' % (now_page, pageCnt))

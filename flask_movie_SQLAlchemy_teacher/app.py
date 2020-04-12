@@ -70,7 +70,7 @@ def content(code):
 
 @app.route('/movieword/<code>')
 def movieword(code):
-    df1=movie_start.Getdata([code],140)
+    df1=movie_start.Getdata([code])
     # 명사만 뽑는 작업 나중에 코드 쓰기
     noun_extractor = LRNounExtractor(verbose=True)
     noun_extractor.train(df1['text'])
