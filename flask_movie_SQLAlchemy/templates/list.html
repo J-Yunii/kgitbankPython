@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "import.html" %}
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    {% include "menu.html" %}     
+    <h1 align="center">회원목록 리스트</h1>
+    <div class="container-fluid">
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">아이디</th>
+                <th scope="col">패스워드</th>
+                <th scope="col">이름</th>
+                <th scope="col">나이</th>
+                <th scope="col">메일주소</th>
+                <th scope="col">주소</th>
+                <th scope="col">성별</th>
+                <th scope="col">전화번호</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              {% for item in list: %}
+              <tr>
+                <td><a href="/content/{{item['userid']}}">{{item['userid']}}</a></td>
+                <td>{{item['userpw']}}</td>
+                <td>{{item['username']}}</td>
+                <td>{{item['userage']}}</td>
+                <td>{{item['usermail']}}</td>
+                <td>{{item['useradd']}}</td>
+                <td>{{item['usergender']}}</td>
+                <td>{{item['usertel']}}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+    </div>
+   </body>
+</html>

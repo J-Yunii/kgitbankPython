@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+           $(":text").css("border","1px dashed #f00");
+           $(":checked").attr("checked",false)
+           $(":selected").attr("selected",false)
+        });
+    
+    </script>
+</head>
+<body>
+   <h1>탐색 선택자</h1>
+   <p>
+       <label for="user_name">이름</label>
+       <input type="text" name="user_name" id="user_name">
+   </p>
+   <p>
+       <input type="checkbox" name="accept" id="accept" checked="checked">
+       <label for="accept">사용자 동의</label>
+   </p>
+   <p>
+       <select name="rel_site" id="rel_site">
+           <option value="네이버">네이버</option>
+           <option value="네이트" selected="selected">네이트</option>
+       </select>
+   </p>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "import.html" %}
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    {% include "menu.html" %} 
+    <h1 align="center">회원정보 수정폼</h1>
+        <div class="container">
+                <form action="/updateform" method="POST">
+                        <!-- <div class="form-group">
+                       
+                        <input type="text" class="form-control" id="id" name="id" value="{{list['id']}}" hidden>
+                       
+                         </div> -->
+                        <div class="form-group">
+                          <label for="userid">사용자 아이디</label>
+                          <input type="text" class="form-control" id="userid" name="userid" value="{{list['userid']}}" readonly aria-describedby="useridHelp" placeholder="Enter userid">
+                          <small id="useridHelp" class="form-text text-muted">아이디는 최소 5자이상, 영문자,숫자,_로만 구성할수 있습니다.</small>
+                        </div>
+                        <div class="form-group">
+                                <label for="userpw">사용자 Password</label>
+                                <input type="password" class="form-control" id="userpw" name="userpw" value="{{list['userpw']}}" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                                <label for="username">사용자 이름</label>
+                                <input type="text" class="form-control" id="username" name="username" value="{{list['username']}}"  placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                                <label for="userage">사용자 나이</label>
+                                <input type="text" class="form-control" id="userage" name="userage" value="{{list['userage']}}" placeholder="Enter userage">
+                        </div>
+                        <div class="form-group">
+                                <label for="useremail">사용자 Email</label>
+                                <input type="email" class="form-control" id="usermail" name="usermail" value="{{list['usermail']}}" aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                                <label for="useradd">사용자 주소</label>
+                                <input type="text" class="form-control" id="useradd" name="useradd" value="{{list['useradd']}}" placeholder="Enter useraddress">
+                        </div>
+                        <div class="form-group">
+                        사용자 성별
+                        {% if list['usergender']=='male': %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="usergender" id="usergender1" value="male" checked>
+                            <label class="form-check-label" for="usergender1">
+                                남자
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="usergender" id="usergender2" value="female">
+                            <label class="form-check-label" for="usergender2">
+                                여자
+                            </label>
+                        </div>
+                        {% else: %}
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="usergender" id="usergender1" value="male" >
+                          <label class="form-check-label" for="usergender1">
+                              남자
+                          </label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="usergender" id="usergender2" value="female" checked>
+                          <label class="form-check-label" for="usergender2">
+                              여자
+                          </label>
+                      </div>
+                      {% endif %}
+                        </div>
+                        <div class="form-group">
+                                <label for="usertel">사용자 전화번호</label>
+                                <input type="text" class="form-control" id="usertel"  name="usertel" value="{{list['usertel']}}" placeholder="Enter usertel">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </div>
+
+    </body>
+</html>

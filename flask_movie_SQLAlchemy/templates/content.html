@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "import.html" %}
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    {% include "menu.html" %}     
+    <h1 align="center">{{list['username']}}회원 정보</h1>
+    <div class="container-fluid">
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">아이디</th>
+                <th scope="col">패스워드</th>
+                <th scope="col">이름</th>
+                <th scope="col">나이</th>
+                <th scope="col">메일주소</th>
+                <th scope="col">주소</th>
+                <th scope="col">성별</th>
+                <th scope="col">전화번호</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+ 
+              <tr>
+                <td>{{list['userid']}}</td>
+                <td>{{list['userpw']}}</td>
+                <td>{{list['username']}}</td>
+                <td>{{list['userage']}}</td>
+                <td>{{list['usermail']}}</td>
+                <td>{{list['useradd']}}</td>
+                <td>{{list['usergender']}}</td>
+                <td>{{list['usertel']}}</td>
+              </tr>
+
+              </tbody>
+          </table>
+          <script type="text/javascript"> 
+            function goUpdate() { 
+                dir="/updateform/{{list['userid']}}"
+                location.replace(dir); 
+            } 
+            function goDelete() { 
+              dir="/deleteform/{{list['userid']}}"
+              location.replace(dir); 
+            } 
+            
+          </script>
+          <button type="button" class="btn btn-success" onclick="goUpdate()">수정</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">삭제</button>
+          <button type="button" class="btn btn-info" onclick="location.replace('/list'); ">목록으로</button>
+
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">삭제 확인</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  삭제하시겠습니까?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                  <button type="button" class="btn btn-primary" onclick="goDelete()">삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+   </body>
+</html>

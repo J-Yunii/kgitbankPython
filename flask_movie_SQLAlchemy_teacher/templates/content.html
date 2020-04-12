@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}영화 내용{% endblock %}
+{% block head %}
+
+
+
+{% endblock %}
+
+{% block content %}
+    <h1 align = 'center'>영화 상세 정보</h1>
+    <div class = 'container'>
+        <br>
+            <table class = 'table table-hover'>
+                <thead>
+                    <tr>
+                        <th scope='col' style='text-align:center' col span='2'> 영 화 내 용</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in movielist: %}
+                    <tr>
+                        <td style = 'text-align:cneter; vertical-align:middle;'>
+                            <a href = "/content/{{item['code']}}">
+                                <img src="{{item['thumb']}}">
+                            </a>
+                        </td>
+                        <td>제목 : {{item['title']}}<br>
+                            상영시간: {{item['time']}}<br>
+                            개봉일자 : {{item['sdate']}}<br>
+                            상영등급 : {{item['grade']}}<br>
+                            총관람객 : {{item['audience']}}<br>
+                            <hr>
+                            {{item['summary']}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan ='2'>
+                            <!-- 둘 다 영화에 대한 정보여서 code 값에 대한 게 필요함 -->
+                            <button onclick="movieword({{item['code']}})">워드클라우드</button>
+                            <button onclick="moviechart({{item['code']}})">매출차트</button>
+                        </td>
+                        <br>
+                        <span id = 'img_src'></span>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+{% endblock %}

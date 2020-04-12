@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}영화 정보 크롤링{% endblock %}
+{% block head %}
+
+<script>
+  function moviesearch(){
+    $.ajax({
+     type : "GET",
+     url : "/moviesearch",
+     dataType : "text",
+     success : function(result){
+       $("#c1").html(result);
+     }
+   });
+  }
+ </script>
+
+
+{% endblock %}
+
+{% block content %}
+
+<h1 align='center'>영화목록리스트</h1>
+<div class = 'container'>
+  <table class = "table table-hover ">
+    <thead>
+      <tr>
+        <!-- th는 표 제목 행 -->
+        <th scope='col'>포스트</th>
+        <th scope='col'>내용</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for item in movielist: %}
+      <tr>
+        <td>
+          <!-- 딕셔너리로 무비리스트를 받아왔으므로 키 값으로 접근 -->
+          <a href = "/content/{{item['code']}}">
+            <img src="{{item['thumb']}}">
+          </a>
+        </td>
+        <td>제목 : {{item['title']}}<br>
+            상영시간: {{item['time']}}<br>
+            개봉일자 : {{item['sdate']}}<br>
+            상영등급 : {{item['grade']}}<br>
+            총관람객 : {{item['audience']}}<br>
+            <hr>
+            {{item['summary']}}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+
