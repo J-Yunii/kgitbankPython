@@ -1,4 +1,5 @@
 from flask import Flask,request,render_template,redirect,url_for,jsonify
+from soynlp.noun import LRNounExtractor
 # 네이버무비: 크롤링, 무비스타:영화평끌어오는, 무비워드클라우드: 워드클라우드 끌어오는 것
 import naver_movie,movie_start,movie_wordcloud
 import pandas as pd
@@ -69,8 +70,13 @@ def content(code):
 
 @app.route('/movieword/<code>')
 def movieword(code):
-    df1=movie_start.Getdata([code],10)
-    movie_wordcloud.displayWordCloud(str(code),' '.join(df1['text']))    
+    df1=movie_start.Getdata([code],140)
+    # 명사만 뽑는 작업 나중에 코드 쓰기
+    noun_extractor = LRNounExtractor(verbose=True)
+    noun_extractor.train(df1['text'])
+    nouns = noun_extractor.extract()
+    # 명사들을 연결해서 워드클라우드로 뽑음
+    movie_wordcloud.displayWordCloud(str(code),' '.join(nouns))    
     return "ok"
 
 @app.route('/moviechart/<code>')

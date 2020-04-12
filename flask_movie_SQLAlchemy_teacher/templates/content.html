@@ -2,7 +2,37 @@
 {% block title %}영화 내용{% endblock %}
 {% block head %}
 
+<script>
+    function movieword(code) {
+        add = '/movieword/' + code
+        // 웹브라우저 콘솔에서 확인 가능
+        console.log(add)
+        $.ajax({
+            type: 'GET',
+            url : add,
+            dataType: 'text',
+            success : function(result){
+                $('#img_src').html('<img src="/static/img/img' + code + '.png">' );
+            }
+        });
+    }
 
+    function moviechart(code) {
+        add = '/moviechart/' + code
+        // 웹브라우저 콘솔에서 확인 가능
+        console.log(add)
+        $.ajax({
+            type: 'GET',
+            url : add,
+            dataType: 'text',
+            success : function(result){
+                $('#img_src').html(result);
+                // $('#img_src').html('<img src="static/img/chart" + code + ".png"> ');
+            }
+        });
+    }
+
+</script>
 
 {% endblock %}
 
@@ -13,7 +43,7 @@
             <table class = 'table table-hover'>
                 <thead>
                     <tr>
-                        <th scope='col' style='text-align:center' col span='2'> 영 화 내 용</th>
+                        <th scope='col' style='text-align:center' colspan='2'> 영 화 내 용</th>
                     </tr>
                 </thead>
 
@@ -39,9 +69,10 @@
                             <!-- 둘 다 영화에 대한 정보여서 code 값에 대한 게 필요함 -->
                             <button onclick="movieword({{item['code']}})">워드클라우드</button>
                             <button onclick="moviechart({{item['code']}})">매출차트</button>
-                        </td>
+                        
                         <br>
                         <span id = 'img_src'></span>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
